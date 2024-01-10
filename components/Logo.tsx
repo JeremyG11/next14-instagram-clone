@@ -20,7 +20,7 @@ function Logo() {
       })}
     >
       <SwitchCamera className="h-6 w-6 shrink-0 lg:hidden" />
-      <div className="relative w-32 h-16">
+      <div className="relative w-32 h-20">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="800"

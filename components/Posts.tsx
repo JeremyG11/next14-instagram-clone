@@ -5,11 +5,11 @@ async function Posts() {
   const posts = await fetchPosts();
 
   return (
-    <>
+    <div className="max-w-lg w-full mx-auto">
       {posts.map((post) => (
         <Post key={post.id} post={post} />
       ))}
-    </>
+    </div>
   );
 }
 

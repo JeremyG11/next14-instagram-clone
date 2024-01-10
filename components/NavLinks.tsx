@@ -60,15 +60,17 @@ function NavLinks() {
             key={link.name}
             href={link.href}
             className={buttonVariants({
-              variant: isActive ? "secondary" : "ghost",
-              className: cn("navLink", { "hidden md:flex": link.hideOnMobile }),
+              variant: "ghost",
+              className: cn("navLink py-3 rounded-lg", {
+                "hidden md:flex": link.hideOnMobile,
+              }),
               size: "lg",
             })}
           >
             <LinkIcon className="w-6" />
             <p
-              className={`${cn("hidden lg:block", {
-                "font-extrabold": isActive,
+              className={`${cn("hidden lg:block text-base p-2.5 ", {
+                "font-extrabold ": isActive,
               })}`}
             >
               {link.name}

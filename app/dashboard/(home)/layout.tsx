@@ -1,10 +1,17 @@
 import Header from "@/components/Header";
+import { SuggestionSidebar } from "./_Components/SuggestionSidebar";
+import { auth } from "@/auth";
 
-function HomePageLayout({ children }: { children: React.ReactNode }) {
+async function HomePageLayout({ children }: { children: React.ReactNode }) {
+  const session = await auth();
+  if (!session?.user) {
+    return;
+  }
   return (
-    <div>
+    <div className="flex">
       <Header />
       {children}
+      <SuggestionSidebar user={session.user} />
     </div>
   );
 }

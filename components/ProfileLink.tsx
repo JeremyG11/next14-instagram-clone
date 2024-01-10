@@ -18,17 +18,17 @@ function ProfileLink({ user }: { user: User }) {
       href={href}
       className={buttonVariants({
         variant: isActive ? "secondary" : "ghost",
-        className: "navLink",
+        className: "navLink p-2.5",
         size: "lg",
       })}
     >
       <UserAvatar
         user={user}
-        className={`h-6 w-6 ${isActive && "border-2 border-white"}`}
+        className={`h-7 w-7 ${isActive && "border-2 border-white"}`}
       />
 
       <p
-        className={`${cn("hidden lg:block", {
+        className={`${cn("hidden lg:block text-base p-2.5 ", {
           "font-extrabold": isActive,
         })}`}
       >
