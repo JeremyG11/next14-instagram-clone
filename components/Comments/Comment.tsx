@@ -1,11 +1,11 @@
 "use client";
-
-import { CommentWithExtras } from "@/lib/types";
-import CommentOptions from "@/components/CommentOptions";
-import UserAvatar from "@/components/UserAvatar";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
-import Timestamp from "../Timestamp";
+import { useSession } from "next-auth/react";
+
+import Timestamp from "@/components/Timestamp";
+import { CommentWithExtras } from "@/lib/types";
+import UserAvatar from "@/components/UserAvatar";
+import CommentOptions from "@/components/Comments/CommentOptions";
 
 type Props = {
   comment: CommentWithExtras;

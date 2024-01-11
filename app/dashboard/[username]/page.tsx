@@ -1,4 +1,4 @@
-import PostsGrid from "@/components/PostsGrid";
+import PostsGrid from "@/components/Posts/PostsGrid";
 import { fetchPostsByUsername } from "@/lib/data";
 
 async function ProfilePage({

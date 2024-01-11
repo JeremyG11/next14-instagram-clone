@@ -51,13 +51,13 @@ function CreatePage() {
   if (!mount) return null;
 
   return (
-    <div className="rounded-3xl border-none">
+    <div className="rounded-3xl border-noneb bg-transparent">
       <Dialog
         open={isCreatePage}
         onOpenChange={(open) => !open && router.back()}
       >
-        <DialogContent className="!rounded-xl bg-white text-gray-700">
-          <DialogHeader className="border-b-[0.5px] p-3  !mx-0">
+        <DialogContent className="!rounded-xl bg-white dark:text-white dark:bg-zinc-900 text-gray-700">
+          <DialogHeader className="border-b-[0.1px] border-white p-3  !mx-0">
             <DialogTitle className="text-center text-base font-bold">
               Create new post
             </DialogTitle>
@@ -70,7 +70,7 @@ function CreatePage() {
                   return toast.error(<Error res={res} />);
                 }
               })}
-              className="space-y-4 flex flex-col justify-center min-h-80"
+              className="space-y-4 flex flex-col justify-center min-h-96"
             >
               {!!fileUrl ? (
                 <div className="h-96 md:h-80 overflow-hidden rounded-md">

@@ -1,6 +1,7 @@
-import PostView from "@/components/Posts/PostView";
-import { fetchPostById } from "@/lib/data";
 import { notFound } from "next/navigation";
+
+import { fetchPostById } from "@/lib/data";
+import PostView from "@/components/Posts/PostView";
 
 type Props = {
   params: {

@@ -1,14 +1,17 @@
 "use client";
-import { SwitchCamera } from "lucide-react";
+import React from "react";
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
 import { useTheme } from "next-themes";
-import React, { useEffect } from "react";
+import { SwitchCamera } from "lucide-react";
+
+import useMount from "@/hooks/useMount";
+import { buttonVariants } from "@/components/ui/button";
 
 function Logo() {
   const { theme } = useTheme();
-  useEffect(() => {}, [theme]);
+  const mount = useMount();
 
+  if (!mount) return null;
   return (
     <Link
       href={"/dashboard"}

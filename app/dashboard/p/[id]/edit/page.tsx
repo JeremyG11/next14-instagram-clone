@@ -1,6 +1,7 @@
+import { notFound } from "next/navigation";
+
 import { fetchPostById } from "@/lib/data";
 import EditPost from "@/components/Posts/EditPost";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: {

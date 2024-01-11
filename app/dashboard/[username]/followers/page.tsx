@@ -1,5 +1,5 @@
-import FollowersModal from "@/components/FollowersModal";
 import { fetchProfile } from "@/lib/data";
+import FollowersModal from "@/components/Follows/FollowersModal";
 
 async function FollowersPage({
   params: { username },

@@ -1,15 +1,16 @@
-import { auth } from "@/auth";
-import FollowButton from "@/components/FollowButton";
-import ProfileAvatar from "@/components/ProfileAvatar";
-import ProfileHeader from "@/components/ProfileHeader";
-import ProfileTabs from "@/components/ProfileTabs";
-import UserAvatar from "@/components/UserAvatar";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { fetchProfile } from "@/lib/data";
-import { MoreHorizontal, Settings } from "lucide-react";
-import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata, ResolvingMetadata } from "next";
+import { MoreHorizontal, Settings } from "lucide-react";
+
+import { auth } from "@/auth";
+import { fetchProfile } from "@/lib/data";
+import UserAvatar from "@/components/UserAvatar";
+import ProfileTabs from "@/components/Profile/ProfileTabs";
+import FollowButton from "@/components/Follows/FollowButton";
+import ProfileAvatar from "@/components/Profile/ProfileAvatar";
+import ProfileHeader from "@/components/Profile/ProfileHeader";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 type Props = {
   params: {

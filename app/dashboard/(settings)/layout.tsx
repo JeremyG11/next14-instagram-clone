@@ -1,6 +1,6 @@
+import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { cn } from "@/lib/utils";
 
 const tabs = [
   { title: "Edit profile", value: "edit-profile" },

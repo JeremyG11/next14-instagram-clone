@@ -1,7 +1,8 @@
-import { PostWithExtras } from "@/lib/types";
-import { HeartIcon, MessageCircle } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { HeartIcon, MessageCircle } from "lucide-react";
+
+import { PostWithExtras } from "@/lib/types";
 
 function PostsGrid({ posts }: { posts: PostWithExtras[] | undefined }) {
   if (posts?.length === 0) {

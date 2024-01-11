@@ -1,4 +1,4 @@
-import FollowingModal from "@/components/FollowingModal";
+import FollowingModal from "@/components/Follows/FollowingModal";
 import { fetchProfile } from "@/lib/data";
 
 async function FollowingPage({

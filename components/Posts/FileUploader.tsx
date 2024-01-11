@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useDropzone } from "@uploadthing/react/hooks";
 import type { FileWithPath } from "@uploadthing/react";
 import { useCallback, Dispatch, SetStateAction } from "react";
@@ -33,13 +34,16 @@ export function FileUploader({
   return (
     <div
       {...getRootProps()}
-      className="flex flex-col justify-center items-center"
+      className="flex flex-col items-center !border-none outline-none"
     >
-      <input {...getInputProps()} className="cursor-pointer" />
+      <input
+        {...getInputProps()}
+        className="cursor-pointer border-none outline-none "
+      />
 
       {imageUrl ? (
         <div className=" ">
-          <img
+          <Image
             src={imageUrl}
             alt="image"
             width={250}
