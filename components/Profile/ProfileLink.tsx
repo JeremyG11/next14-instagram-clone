@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 import type { User } from "next-auth";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { buttonVariants } from "./ui/button";
-import UserAvatar from "./UserAvatar";
+import { buttonVariants } from "../ui/button";
+import UserAvatar from "../UserAvatar";
 
 function ProfileLink({ user }: { user: User }) {
   const pathname = usePathname();
@@ -18,13 +18,15 @@ function ProfileLink({ user }: { user: User }) {
       href={href}
       className={buttonVariants({
         variant: isActive ? "secondary" : "ghost",
-        className: "navLink p-2.5",
+        className: "group navLink p-2.5",
         size: "lg",
       })}
     >
       <UserAvatar
         user={user}
-        className={`h-7 w-7 ${isActive && "border-2 border-white"}`}
+        className={`h-7 w-7 group-hover:scale-110 transition-all transform ease-in-out duration-200  ${
+          isActive && "border-2 border-white"
+        }`}
       />
 
       <p

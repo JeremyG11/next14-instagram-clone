@@ -1,6 +1,6 @@
 import { followUser } from "@/lib/actions";
-import SubmitButton from "./SubmitButton";
-import { buttonVariants } from "./ui/button";
+import SubmitButton from "../SubmitButton";
+import { buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
 
 function FollowButton({

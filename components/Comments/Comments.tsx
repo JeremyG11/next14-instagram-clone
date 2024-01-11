@@ -60,7 +60,7 @@ function Comments({
         </Link>
       )}
 
-      {optimisticComments.slice(0, 3).map((comment, i) => {
+      {/* {optimisticComments.slice(0, 3).map((comment, i) => {
         const username = comment.user?.username;
 
         return (
@@ -74,7 +74,7 @@ function Comments({
             <p>{comment.body}</p>
           </div>
         );
-      })}
+      })} */}
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(async (values) => {

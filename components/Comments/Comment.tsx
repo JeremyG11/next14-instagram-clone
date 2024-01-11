@@ -5,7 +5,7 @@ import CommentOptions from "@/components/CommentOptions";
 import UserAvatar from "@/components/UserAvatar";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import Timestamp from "./Timestamp";
+import Timestamp from "../Timestamp";
 
 type Props = {
   comment: CommentWithExtras;
@@ -27,7 +27,7 @@ function Comment({ comment, inputRef }: Props) {
           <Link href={href} className="font-semibold">
             {username}
           </Link>
-          <p className="font-medium">{comment.body}</p>
+          <p className="font-normal">{comment.body}</p>
         </div>
         <div className="flex h-5 items-center space-x-2.5">
           <Timestamp createdAt={comment.createdAt} />

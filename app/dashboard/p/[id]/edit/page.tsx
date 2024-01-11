@@ -1,5 +1,5 @@
 import { fetchPostById } from "@/lib/data";
-import EditPost from "@/components/EditPost";
+import EditPost from "@/components/Posts/EditPost";
 import { notFound } from "next/navigation";
 
 type Props = {

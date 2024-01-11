@@ -25,9 +25,9 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
-import SubmitButton from "./SubmitButton";
-import UserAvatar from "./UserAvatar";
-import { Form } from "./ui/form";
+import SubmitButton from "../SubmitButton";
+import UserAvatar from "../UserAvatar";
+import { Form } from "../ui/form";
 
 function ProfileAvatar({
   user,

@@ -3,9 +3,10 @@ import { cn } from "@/lib/utils";
 import ActionIcon from "@/components/ActionIcon";
 import { MessageCircle } from "lucide-react";
 import Link from "next/link";
-import LikeButton from "./Like";
-import ShareButton from "./ShareButton";
-import BookmarkButton from "./BookmarkButton";
+import LikeButton from "../Like";
+import ShareButton from "../ShareButton";
+import BookmarkButton from "../BookmarkButton";
+import { CommentIcon } from "../Icons";
 
 type Props = {
   post: PostWithExtras;
@@ -19,7 +20,7 @@ function PostActions({ post, userId, className }: Props) {
       <LikeButton post={post} userId={userId} />
       <Link href={`/dashboard/p/${post.id}`}>
         <ActionIcon>
-          <MessageCircle className={"h-6 w-6"} />
+          <CommentIcon />
         </ActionIcon>
       </Link>
       <ShareButton postId={post.id} />

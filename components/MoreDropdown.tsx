@@ -23,6 +23,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { Switch } from "./ui/switch";
+import { SlMenu } from "react-icons/sl";
 
 function MoreDropdown() {
   const [showModeToggle, setShowModeToggle] = useState(false);
@@ -53,10 +54,10 @@ function MoreDropdown() {
           onClick={() => setOpen(!open)}
           variant={"ghost"}
           size={"lg"}
-          className="md:w-full !justify-start space-x-2 !px-3"
+          className="group md:w-full !justify-start space-x-2 !px-3"
         >
-          <Menu />
-          <div className="hidden lg:block">More</div>
+          <SlMenu className="text-2xl group-hover:scale-110 transition-all transform ease-in-out duration-200 " />
+          <div className="hidden lg:block p-2.5">More</div>
         </Button>
       </DropdownMenuTrigger>
 

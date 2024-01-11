@@ -1,10 +1,8 @@
+import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+
 import { auth } from "@/auth";
-import Comment from "@/components/Comment";
-import CommentForm from "@/components/CommentForm";
-import Post from "@/components/Post";
-import PostActions from "@/components/PostActions";
-import PostOptions from "@/components/PostOptions";
-import UserAvatar from "@/components/UserAvatar";
 import {
   HoverCard,
   HoverCardContent,
@@ -12,11 +10,14 @@ import {
 } from "@/components/ui/hover-card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { fetchPostById } from "@/lib/data";
-import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { Card } from "./ui/card";
-import MiniPost from "./MiniPost";
+import Post from "@/components/Posts/Post";
+import { Card } from "@/components/ui/card";
+import UserAvatar from "@/components/UserAvatar";
+import MiniPost from "@/components/Posts/MiniPost";
+import Comment from "@/components/Comments/Comment";
+import PostOptions from "@/components/Posts/PostOptions";
+import PostActions from "@/components/Posts/PostActions";
+import CommentForm from "@/components/Comments/CommentForm";
 
 async function SinglePost({ id }: { id: string }) {
   const post = await fetchPostById(id);

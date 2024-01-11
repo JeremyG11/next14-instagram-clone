@@ -3,9 +3,9 @@ import UserAvatar from "@/components/UserAvatar";
 import { PostWithExtras } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
-import Comments from "./Comments";
-import Timestamp from "./Timestamp";
-import { Card } from "./ui/card";
+import Comments from "../Comments/Comments";
+import Timestamp from "../Timestamp";
+import { Card } from "../ui/card";
 import PostOptions from "./PostOptions";
 import PostActions from "./PostActions";
 

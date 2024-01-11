@@ -1,8 +1,8 @@
 import { auth } from "@/auth";
 import Logo from "./Logo";
-import MoreDropdown from "./MoreDropdown";
 import NavLinks from "./NavLinks";
-import ProfileLink from "./ProfileLink";
+import ProfileLink from "./Profile/ProfileLink";
+import MoreDropdown from "./MoreDropdown";
 
 async function SideNav() {
   const session = await auth();

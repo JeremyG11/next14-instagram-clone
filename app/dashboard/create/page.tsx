@@ -1,41 +1,44 @@
 "use client";
 
+import { z } from "zod";
+import { toast } from "sonner";
+import Image from "next/image";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+
 import Error from "@/components/Error";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import useMount from "@/hooks/useMount";
 import { createPost } from "@/lib/actions";
 import { CreatePost } from "@/lib/schemas";
-import { UploadButton } from "@/lib/uploadthing";
+import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import { z } from "zod";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/customs/dialog";
+import { FileUploader } from "@/components/Posts/FileUploader";
 
 function CreatePage() {
   const pathname = usePathname();
   const isCreatePage = pathname === "/dashboard/create";
   const router = useRouter();
   const mount = useMount();
+
+  const [files, setFiles] = useState<File[]>([]);
+
   const form = useForm<z.infer<typeof CreatePost>>({
     resolver: zodResolver(CreatePost),
     defaultValues: {
@@ -48,16 +51,17 @@ function CreatePage() {
   if (!mount) return null;
 
   return (
-    <div>
+    <div className="rounded-3xl border-none">
       <Dialog
         open={isCreatePage}
         onOpenChange={(open) => !open && router.back()}
       >
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Create new post</DialogTitle>
+        <DialogContent className="!rounded-xl bg-white text-gray-700">
+          <DialogHeader className="border-b-[0.5px] p-3  !mx-0">
+            <DialogTitle className="text-center text-base font-bold">
+              Create new post
+            </DialogTitle>
           </DialogHeader>
-
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(async (values) => {
@@ -66,10 +70,10 @@ function CreatePage() {
                   return toast.error(<Error res={res} />);
                 }
               })}
-              className="space-y-4"
+              className="space-y-4 flex flex-col justify-center min-h-80"
             >
               {!!fileUrl ? (
-                <div className="h-96 md:h-[450px] overflow-hidden rounded-md">
+                <div className="h-96 md:h-80 overflow-hidden rounded-md">
                   <AspectRatio ratio={1 / 1} className="relative h-full">
                     <Image
                       src={fileUrl}
@@ -85,23 +89,12 @@ function CreatePage() {
                   name="fileUrl"
                   render={({ field, fieldState }) => (
                     <FormItem>
-                      <FormLabel htmlFor="picture">Picture</FormLabel>
-                      <FormControl>
-                        <UploadButton
-                          endpoint="imageUploader"
-                          onClientUploadComplete={(res) => {
-                            form.setValue("fileUrl", res[0].url);
-                            toast.success("Upload complete");
-                          }}
-                          onUploadError={(error: Error) => {
-                            console.error(error);
-                            toast.error("Upload failed");
-                          }}
-                        />
-                      </FormControl>
-                      <FormDescription>
-                        Upload a picture to post.
-                      </FormDescription>
+                      <FileUploader
+                        onFieldChange={field.onChange}
+                        imageUrl={fileUrl}
+                        setFiles={setFiles}
+                        isSubmitting={form.formState.isSubmitting}
+                      />
                       <FormMessage />
                     </FormItem>
                   )}
@@ -128,10 +121,6 @@ function CreatePage() {
                   )}
                 />
               )}
-
-              <Button type="submit" disabled={form.formState.isSubmitting}>
-                Create Post
-              </Button>
             </form>
           </Form>
         </DialogContent>

@@ -1,12 +1,13 @@
 "use client";
 
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { UserWithExtras } from "@/lib/types";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Separator } from "./ui/separator";
 import { Bookmark, Clapperboard, Contact, Grid3X3 } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+import { UserWithExtras } from "@/lib/types";
+import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const profileTabs = [
   {

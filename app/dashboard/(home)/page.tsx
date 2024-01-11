@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import Posts from "@/components/Posts";
-import { PostsSkeleton } from "@/components/Skeletons";
+import Posts from "@/components/Posts/Posts";
 import { IGHistory } from "./_Components/IGHistory";
+import { PostsSkeleton } from "@/components/Skeletons";
 
 function DashboardPage() {
   return (

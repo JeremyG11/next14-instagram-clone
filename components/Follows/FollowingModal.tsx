@@ -10,8 +10,8 @@ import useMount from "@/hooks/useMount";
 import { FollowingWithExtras } from "@/lib/types";
 import { usePathname, useRouter } from "next/navigation";
 import Following from "./Following";
-import UserAvatar from "./UserAvatar";
-import { ScrollArea } from "./ui/scroll-area";
+import UserAvatar from "../UserAvatar";
+import { ScrollArea } from "../ui/scroll-area";
 
 function FollowingModal({
   following,

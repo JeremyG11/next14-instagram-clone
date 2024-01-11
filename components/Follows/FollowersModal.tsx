@@ -1,6 +1,6 @@
 "use client";
+import { usePathname, useRouter } from "next/navigation";
 
-import Follower from "@/components/Follower";
 import {
   Dialog,
   DialogContent,
@@ -9,8 +9,8 @@ import {
 } from "@/components/ui/dialog";
 import useMount from "@/hooks/useMount";
 import { FollowerWithExtras } from "@/lib/types";
-import { usePathname, useRouter } from "next/navigation";
-import { ScrollArea } from "./ui/scroll-area";
+import Follower from "@/components/Follows/Follower";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 function FollowersModal({
   followers,

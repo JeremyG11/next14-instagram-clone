@@ -27,7 +27,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 import ProfileAvatar from "./ProfileAvatar";
-import UserAvatar from "./UserAvatar";
+import UserAvatar from "../UserAvatar";
 
 function ProfileForm({ profile }: { profile: UserWithExtras }) {
   const form = useForm<z.infer<typeof UserSchema>>({

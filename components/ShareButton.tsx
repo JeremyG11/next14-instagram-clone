@@ -16,7 +16,7 @@ function ShareButton({ postId }: { postId: string }) {
         });
       }}
     >
-      <Send className={"h-6 w-6"} />
+      <Send className={"h-6 w-7"} />
     </ActionIcon>
   );
 }
