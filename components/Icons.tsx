@@ -13,7 +13,7 @@ export const CommentIcon = () => (
       fill="none"
       stroke="currentColor"
       strokeLinejoin="round"
-      stroke-width="2"
+      strokeWidth="2"
     ></path>
   </svg>
 );

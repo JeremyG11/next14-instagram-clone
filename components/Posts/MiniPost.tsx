@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import PostOptions from "./PostOptions";
-import UserAvatar from "../UserAvatar";
 import { useSession } from "next-auth/react";
 import { PostWithExtras } from "@/lib/types";
-import Timestamp from "../Timestamp";
+import Timestamp from "@/components/Timestamp";
+import UserAvatar from "@/components/UserAvatar";
+import PostOptions from "@/components/Posts/PostOptions";
 
 function MiniPost({ post }: { post: PostWithExtras }) {
   const username = post.user.username;

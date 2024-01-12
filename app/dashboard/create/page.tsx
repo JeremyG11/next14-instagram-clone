@@ -29,6 +29,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/customs/dialog";
+import { useUploadThing } from "@/lib/uploadthing";
 import { FileUploader } from "@/components/Posts/FileUploader";
 
 function CreatePage() {
@@ -39,6 +40,7 @@ function CreatePage() {
 
   const [files, setFiles] = useState<File[]>([]);
 
+  console.log(files);
   const form = useForm<z.infer<typeof CreatePost>>({
     resolver: zodResolver(CreatePost),
     defaultValues: {
@@ -46,9 +48,30 @@ function CreatePage() {
       fileUrl: undefined,
     },
   });
+  const { startUpload } = useUploadThing("imageUploader");
+
   const fileUrl = form.watch("fileUrl");
 
   if (!mount) return null;
+
+  const onSubmit = async (values: z.infer<typeof CreatePost>) => {
+    let uploadedImageUrl = values.fileUrl;
+
+    if (files.length > 0) {
+      const uploadedImages = await startUpload(files);
+
+      if (!uploadedImages) {
+        return;
+      }
+
+      uploadedImageUrl = uploadedImages[0].url;
+    }
+    const res = await createPost({ ...values, fileUrl: uploadedImageUrl });
+    console.log(res);
+    if (res) {
+      return toast.error(<Error res={res} />);
+    }
+  };
 
   return (
     <div className="rounded-3xl border-noneb bg-transparent">
@@ -64,12 +87,7 @@ function CreatePage() {
           </DialogHeader>
           <Form {...form}>
             <form
-              onSubmit={form.handleSubmit(async (values) => {
-                const res = await createPost(values);
-                if (res) {
-                  return toast.error(<Error res={res} />);
-                }
-              })}
+              onSubmit={form.handleSubmit(onSubmit)}
               className="space-y-4 flex flex-col justify-center min-h-96"
             >
               {!!fileUrl ? (
@@ -121,6 +139,12 @@ function CreatePage() {
                   )}
                 />
               )}
+              <button
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md"
+              >
+                Public
+              </button>
             </form>
           </Form>
         </DialogContent>
