@@ -38,7 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 <div align="center">
   <br />
     <a href="https://youtu.be/zgGhzuBZOQg" target="_blank">
-      <img src="https://github.com/adrianhajdin/event_platform/assets/151519281/548975af-f0ed-4103-8834-fe93cf91862e" alt="Project Banner">
+      <img src="https://github.com/adrianhajdin/assets/151519281/548975af-f0ed-4103-8834-fe93cf91862e" alt="Project Banner">
     </a>
   <br />
 
