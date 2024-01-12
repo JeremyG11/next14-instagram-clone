@@ -1,27 +1,27 @@
 "use client";
 
-import CommentForm from "@/components/CommentForm";
-import PostActions from "@/components/PostActions";
-import UserAvatar from "@/components/UserAvatar";
-import ViewPost from "@/components/ViewPost";
-import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import Link from "next/link";
+import Image from "next/image";
+import { useRef } from "react";
+import { useSession } from "next-auth/react";
+import { usePathname, useRouter } from "next/navigation";
+
 import useMount from "@/hooks/useMount";
 import { PostWithExtras } from "@/lib/types";
-import { useSession } from "next-auth/react";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useRef } from "react";
-import MiniPost from "./MiniPost";
-import Comment from "../Comments/Comment";
-// import MiniPost from "./MiniPost";
+import UserAvatar from "@/components/UserAvatar";
+import ViewPost from "@/components/Posts/ViewPost";
+import MiniPost from "@/components/Posts/MiniPost";
+import Comment from "@/components/Comments/Comment";
+import PostActions from "@/components/Posts/PostActions";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import CommentForm from "@/components/Comments/CommentForm";
+import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 
 function PostView({ id, post }: { id: string; post: PostWithExtras }) {
   const pathname = usePathname();
   const isPostModal = pathname === `/dashboard/p/${id}`;
   const router = useRouter();
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const user = session?.user;
   const inputRef = useRef<HTMLInputElement>(null);
   const username = post.user.username;

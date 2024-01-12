@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import useMount from "@/hooks/useMount";
 import ReactTimeago from "react-timeago";
 
 type Props = {
@@ -9,6 +10,8 @@ type Props = {
 };
 
 function Timestamp({ createdAt, className }: Props) {
+  const mount = useMount();
+  if (!mount) return null;
   return (
     <ReactTimeago
       className={cn(
@@ -17,7 +20,6 @@ function Timestamp({ createdAt, className }: Props) {
       )}
       date={createdAt}
       formatter={(value, unit, suffix, epochMiliseconds, nextFormatter) => {
-        // Example: if its 7 min, return "7m", if its 7 hours, return "7h" like that
         if (unit === "second") {
           return `${value}${unit[0]}`;
         } else if (unit === "minute") {
