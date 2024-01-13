@@ -7,7 +7,6 @@ import { useCallback, Dispatch, SetStateAction } from "react";
 import { generateClientDropzoneAccept } from "uploadthing/client";
 
 import { Button } from "@/components/ui/button";
-import { useUploadThing } from "@/lib/uploadthing";
 
 type FileUploaderProps = {
   onFieldChange: (url: string) => void;

@@ -87,14 +87,7 @@ export const users = [
     image_url:
       "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
   },
-  {
-    id: 12,
-    name: "Ayo Ogunseinde",
-    username: "ayo_ogunseinde",
-    isUpdate: false,
-    image_url:
-      "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-  },
+
   {
     id: 13,
     name: "Vince Fleming",

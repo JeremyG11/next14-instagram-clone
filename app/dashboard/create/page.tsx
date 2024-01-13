@@ -30,7 +30,7 @@ import {
   DialogTitle,
 } from "@/components/ui/customs/dialog";
 import { useUploadThing } from "@/lib/uploadthing";
-import { FileUploader } from "@/components/Posts/FileUploader";
+import { FileUploader } from "@/components/shared/FileUploader";
 
 function CreatePage() {
   const pathname = usePathname();
@@ -88,7 +88,7 @@ function CreatePage() {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-4 flex flex-col justify-center min-h-96"
+              className="space-y-4 p-3 flex flex-col justify-center min-h-96"
             >
               {!!fileUrl ? (
                 <div className="h-96 md:h-80 overflow-hidden rounded-md">
@@ -120,31 +120,34 @@ function CreatePage() {
               )}
 
               {!!fileUrl && (
-                <FormField
-                  control={form.control}
-                  name="caption"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel htmlFor="caption">Caption</FormLabel>
-                      <FormControl>
-                        <Input
-                          type="caption"
-                          id="caption"
-                          placeholder="Write a caption..."
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div className=" py-2 px-3 flex items-end ">
+                  <FormField
+                    control={form.control}
+                    name="caption"
+                    render={({ field }) => (
+                      <FormItem className=" w-full">
+                        <FormLabel htmlFor="caption">Caption</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="caption"
+                            id="caption"
+                            placeholder="Write a caption... !outline-none"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <button
+                    type="submit"
+                    disabled={form.formState.isSubmitting}
+                    className="bg-blue-500 hover:bg-blue-600 w-32 ml-4 p-2 mt-4 text-white rounded-md"
+                  >
+                    create
+                  </button>
+                </div>
               )}
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md"
-              >
-                Public
-              </button>
             </form>
           </Form>
         </DialogContent>

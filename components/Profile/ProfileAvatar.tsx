@@ -86,7 +86,7 @@ function ProfileAvatar({
                       <UploadButton
                         className="text-sm h-11 ut-button:bg-transparent border-y border-zinc-300 dark:border-neutral-700 ut-button:text-blue-500 ut-button:font-bold ut-allowed-content:hidden ut-button:ring-0 ut-button:focus-visible:ring-0 ut-button:ring-offset-0 ut-button:w-full"
                         endpoint="imageUploader"
-                        onClientUploadComplete={(res) => {
+                        onClientUploadComplete={(res: any) => {
                           form.setValue("image", res[0].url);
 
                           if (inputRef.current) {

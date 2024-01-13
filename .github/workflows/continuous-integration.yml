@@ -1,0 +1,21 @@
+name: next14-ig-clone-CICD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Login to docker hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build docker image
+        run: docker build -t gatwechpeter/next14-ig-clone .
+
+      - name: Publish image to docker hub
+        run: docker push gatwechpeter/next14-ig-clone:latest

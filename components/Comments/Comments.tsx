@@ -50,7 +50,7 @@ function Comments({
 
   return (
     <div className="space-y-0.5 px-3 sm:px-0">
-      {commentsCount > 1 && (
+      {commentsCount > 0 && (
         <Link
           scroll={false}
           href={`/dashboard/p/${postId}`}
@@ -60,21 +60,6 @@ function Comments({
         </Link>
       )}
 
-      {/* {optimisticComments.slice(0, 3).map((comment, i) => {
-        const username = comment.user?.username;
-
-        return (
-          <div
-            key={i}
-            className="text-sm flex items-center space-x-2 font-medium"
-          >
-            <Link href={`/dashboard/${username}`} className="font-semibold">
-              {username}
-            </Link>
-            <p>{comment.body}</p>
-          </div>
-        );
-      })} */}
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(async (values) => {

@@ -1,5 +1,6 @@
 import React from "react";
 import { users } from "@/lib/dummy";
+import IGHistoryUser from "./IGHistoryUser";
 
 export function IGHistoryUsers() {
   return (
@@ -7,24 +8,21 @@ export function IGHistoryUsers() {
       {users.map((user) => (
         <li
           key={user.id}
-          className="flex flex-none flex-col items-center space-y-0"
+          className="flex overflow-hidden flex-none flex-col items-center space-x-3 space-y-0"
         >
           <div
             className={
-              "bg-gradient-to-tr from-yellow-400 to-fuchsia-600 border-1 p-0.5 border-gray-300 bg-white rounded-full"
+              "bg-gradient-to-tr from-yellow-500 to-fuchsia-600 p-[2px] border-gray-300 rounded-full"
             }
           >
-            <a href="#" className="block bg-white p-0.5 rounded-full relative">
-              <img
-                src={user.image_url}
-                alt={user.name}
-                className="w-14 h-14 rounded-full object-cover"
-              />
-            </a>
+            <IGHistoryUser
+              username={user.username}
+              image_url={user.image_url}
+            />
           </div>
-          <a href="#" className="text-xs text-slate-800">
+          <p className="text-xs text-slate-800 mt-1 dark:text-white line-clamp-1 !truncate">
             {user.username}
-          </a>
+          </p>
         </li>
       ))}
     </>
